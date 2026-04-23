@@ -88,7 +88,8 @@ sceneやseriesもcastとしての役割を果たすことがある。
 - フォース
 - クローン戦争
 - ナブーの戦い
-  などなど
+
+などなど
 
 ## CurationEngine
 
