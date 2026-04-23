@@ -29,9 +29,9 @@ sceneをまとめたもの。seriesの中にseriesが入ることもある。
 
 ```mermaid
 flowchart TB
-
+    AB["ムスタファーで大規模噴火"]
   subgraph SW["スターウォーズ"]
-
+    SW1[パルパティーン青年、フォースに夢中になる]
     subgraph ANAKIN["アナキン編"]
 
       subgraph PM["ファントム・メナス"]
