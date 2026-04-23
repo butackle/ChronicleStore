@@ -2,11 +2,24 @@
 
 ```mermaid
 flowchart LR
-  P((People)) --> CR[[Curatorium]]
+  P((People)) --> CE[[CurationEngine]]
   A((Archivist)) --> AE[[ArchiveEngine]]
-  AE --> OR[(Omnirecord)]
-  OR --> CR
+  AE --> HR[(HistoryRecord)]
+  HR --> CE
 ```
+
+## HistoryRecord
+
+あらゆる事象を記録するためのデータベース
+
+## CurationEngine
+
+HistoryRecordに入っている情報を人が見やすい形で提供するためのシステム
+
+## ArchiveEngine
+
+あらゆる事象をHistoryRecordに記録するためのシステム
+
 
 
 
