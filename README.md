@@ -2,10 +2,26 @@
 
 ```mermaid
 flowchart LR
-  P((People)) --> CE[[CurationEngine]]
-  A((Archivist)) --> AE[[ArchiveEngine]]
+  AE[[ArchiveEngine]]
   AE --> HR[(HistoryRecord)]
-  HR --> CE
+
+  subgraph CS1[CurationSystem]
+    CEDB1[(CurationDB)]
+    CE1[[CurationEngine]]
+  end
+  HR --> CS1
+
+  subgraph CS2[CurationSystem]
+    CEDB2[(CurationDB)]
+    CE2[[CurationEngine]]
+  end
+  HR --> CS2
+
+  subgraph CS3[CurationSystem]
+    CEDB3[(CurationDB)]
+    CE3[[CurationEngine]]
+  end
+  HR --> CS3  
 ```
 
 ## HistoryRecord
@@ -91,13 +107,13 @@ sceneやseriesもcastとしての役割を果たすことがある。
 
 などなど
 
-## CurationEngine
+## CurationSystem
 
-HistoryRecordに入っている情報を人が見やすい形で提供するためのシステム
+HistoryRecordに入っている情報を目的に応じて提供するためのアプリケーションおよびデータベース
 
 ## ArchiveEngine
 
-あらゆる事象をHistoryRecordに記録するためのシステム
+HistoryRecordに記録するためのアプリケーション
 
 
 
