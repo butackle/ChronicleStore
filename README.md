@@ -42,7 +42,7 @@ flowchart LR
 
 #### series
 
-sceneをまとめたもの。seriesの中にseriesが入ることもある。
+sceneをまとめたもの。seriesの中にseriesが入ることもある。単一のsceneが複数のseriesに入ることもある。
 
 ```mermaid
 flowchart TB
