@@ -1,18 +1,11 @@
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
+import {Reliability} from './abstract/reliability';
 
 @Entity()
-export class Scene {
-
+export class Source extends Reliability {
   @PrimaryGeneratedColumn()
   id: number
 
   @Column()
-  firstName: string
-
-  @Column()
-  lastName: string
-
-  @Column()
-  age: number
-
+  name: string
 }
