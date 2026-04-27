@@ -1,4 +1,4 @@
-# システム構造
+# System Architecture
 
 ```mermaid
 flowchart LR
@@ -26,60 +26,63 @@ flowchart LR
 
 ## HistoryRecord
 
-あらゆる歴史的事象を記録するためのデータベース
+A database designed to record all historical events.
 
-### 基本データ構造
+### Basic Data Structure
 
 #### scene
 
-いつ、どこで、何が、何をしたかを記録するもの
+scene
 
-- 22 BBY、惑星ナブーで、アナキンがパドメと結婚した
-- 4 ABY、皇帝パルパティーンの玉座の間で、ルークがダースベイダーを倒した
-- 0 BBY、オルデラン星系で、デススターが惑星オルデランを破壊した
-- 32 BBY、タトゥイーンで、砂嵐が起きた
-- 33 BBY、ナブーの戦いを知った少年たちはひどいショックを受けた。
+A unit that records when, where, who, and what happened.
+
+- 22 BBY: Anakin married Padmé on the planet Naboo
+- 4 ABY: Luke defeated Darth Vader in Emperor Palpatine’s throne room
+- 0 BBY: The Death Star destroyed the planet Alderaan in the Alderaan system
+- 32 BBY: A sandstorm occurred on Tatooine
+- 33 BBY: Children who learned about the Battle of Naboo were deeply shocked
 
 #### series
 
-sceneをまとめたもの。seriesの中にseriesが入ることもある。単一のsceneが複数のseriesに入ることもある。
+A collection of scenes.
+A series can contain other series, and a single scene may belong to multiple series.
 
 ```mermaid
 flowchart TB
-    AB["ムスタファーで大規模噴火"]
-  subgraph SW["スターウォーズ"]
-    SW1[パルパティーン青年、フォースに夢中になる]
-    subgraph ANAKIN["アナキン編"]
+    AB["Massive eruption on Mustafar"]
+  subgraph SW["Star Wars"]
+    SW1[Young Palpatine becomes obsessed with the Force]
+    subgraph ANAKIN["Anakin Arc"]
 
-      subgraph PM["ファントム・メナス"]
-        PM1["タトゥイーンで砂嵐"]
-        PM2["ポッドレース優勝"]
-        PM3["ジェダイに推薦"]
+      subgraph PM["The Phantom Menace"]
+        PM1["Sandstorm on Tatooine"]
+        PM2["Podrace victory"]
+        PM3["Recommended to the Jedi Order"]
 
-        subgraph NABOO["ナブーの戦い"]
-          N1["パドメと出会う"]
-          N2["ジェダイ指揮で戦闘"]
+        subgraph NABOO["Battle of Naboo"]
+          N1["Meets Padmé"]
+          N2["Leads Jedi in battle"]
         end
       end
 
-      subgraph CW["クローン・ウォーズ"]
-        CW1["クローン戦争開始"]
-        CW2["ジェダイが指揮して戦闘"]
+      subgraph CW["Clone Wars"]
+        CW1["Clone Wars begin"]
+        CW2["Jedi lead the army in battle"]
       end
 
     end
 
-    subgraph LUKE["ルーク編"]
+    subgraph LUKE["Luke Arc"]
 
-      subgraph NH["新たなる希望"]
-        NH1["オビ=ワンと出会う"]
-        NH2["ヨーダの訓練"]
+      subgraph NH["A New Hope"]
+        NH1["Meets Obi-Wan"]
+        NH2["Trained by Yoda"]
       end
 
-      subgraph ROTJ["ジェダイの帰還"]
-        R1["デススター再建"]
-        R2["ダースベイダー撃破"]
-        R3["パルパティーン死亡"]
+      subgraph ROTJ["Return of the Jedi"]
+        R1["Death Star rebuilt"]
+        R2["Defeats Darth Vader"]
+        R3["Palpatine dies"]
       end
 
     end
@@ -89,31 +92,30 @@ flowchart TB
 
 #### cast
 
-sceneの事象を引き起こすありとあらゆるもの。
-sceneやseriesもcastとしての役割を果たすことがある。
+Any entity that causes or participates in events within a scene.
+Scenes and series themselves can also act as cast.
 
-- オビ=ワン=ケノービ
-- デススター
-- ジェダイ
-- ムスタファー
-- ポッドレース
-- ナブー
-- ライトセーバー
-- 砂嵐
-- タトゥイーン
-- フォース
-- クローン戦争
-- ナブーの戦い
+- Obi-Wan Kenobi
+- Death Star
+- Jedi
+- Mustafar
+- Podrace
+- Naboo
+- Lightsaber
+- Sandstorm
+- Tatooine
+- The Force
+- Clone Wars
+- Battle of Naboo
 
-などなど
+etc.
 
 ## CurationSystem
 
-HistoryRecordに入っている情報を目的に応じて提供するためのアプリケーションおよびデータベース
-
+An application and database that provide information stored in the HistoryRecord based on specific purposes.
 ## ArchiveEngine
 
-HistoryRecordに記録するためのアプリケーション
+An application responsible for recording data into the HistoryRecord.
 
 
 
