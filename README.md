@@ -32,8 +32,6 @@ A database designed to record all historical events.
 
 #### scene
 
-scene
-
 A unit that records when, where, who, and what happened.
 
 - 22 BBY: Anakin married Padmé on the planet Naboo
