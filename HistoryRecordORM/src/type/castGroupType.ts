@@ -1,5 +1,5 @@
 export enum CastGroupType {
   SAME_PERSON = 'SAME_PERSON',
   ROOTS = 'ROOTS',
-  Ramet = 'RAMET',
+  SINGLETON = 'SINGLETON',
 }
