@@ -1,11 +1,10 @@
-import {Column, Entity, JoinColumn, ManyToMany, OneToOne, TreeChildren} from 'typeorm'
+import {Column, Entity, JoinColumn, ManyToMany, OneToMany, OneToOne, TreeChildren} from 'typeorm'
 import {Cast} from './cast';
 import {Source} from './source';
-import {Astron} from './astron';
 import {Archiver} from './archiver';
 import {Reliability} from './abstract/reliability';
-import {Coordinates} from '../type/coordinates';
 import {Series} from './series';
+import {LocationReliability} from './locationReliability';
 
 @Entity()
 export class Scene extends Reliability {
@@ -13,16 +12,9 @@ export class Scene extends Reliability {
   @Column()
   time!: Date
 
-  // Celestial body where the event took place
-  @OneToOne(() => Astron)
-  @JoinColumn()
-  astron!: Astron
-
-  // Presumed location of the event
-  @Column({
-    type: 'json',
-  })
-  coordinates!: Coordinates[]
+  // Location of the event with reliability
+  @OneToMany(() => LocationReliability, locationReliability => locationReliability.scene)
+  locationReliabilities!: LocationReliability[]
 
   // Cast involved in the event
   @TreeChildren()
