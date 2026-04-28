@@ -1,5 +1,6 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
+import {Column, Entity, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
 import {AstronType} from '../type/astronType';
+import {AstronGroup} from './astronGroup';
 
 @Entity()
 export class Astron {
@@ -25,6 +26,9 @@ export class Astron {
   // Datetime when the distance to the celestial body was measured
   @Column()
   observedAt!: Date
+
+  @ManyToMany(() => AstronGroup, astronGroup => astronGroup.astrons)
+  astronGroup!: AstronGroup[]
 
   @Column()
   createdAt!: Date
