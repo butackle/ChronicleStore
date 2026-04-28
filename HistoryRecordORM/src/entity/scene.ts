@@ -31,12 +31,16 @@ export class Scene extends Reliability {
   source!: Source
 
   // start position of the source
-  @Column()
-  startPosition!: number
+  @Column({
+    type: 'json'
+  })
+  startPosition!: object
 
   // end position of the source
-  @Column()
-  endPosition!: number
+  @Column({
+    type: 'json'
+  })
+  endPosition!: object
 
   // Archiver who recorded the scene
   @Column(() => Archiver)
