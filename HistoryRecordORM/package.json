@@ -1,7 +1,10 @@
 {
   "name": "history-record-orm",
   "type": "commonjs",
-  "scripts": {},
+  "scripts": {
+    "typeorm": "typeorm-ts-node-commonjs",
+    "output-metadata": "ts-node  --compiler-options '{\"strictPropertyInitialization\": false}' ./src/script/outputEntityMetaData.ts"
+  },
   "dependencies": {
     "pg": "^8.20.0",
     "pg-query-stream": "^4.14.0",
@@ -10,6 +13,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0"
+    "@types/node": "^25.6.0",
+    "ts-node": "^10.9.2"
   }
 }
