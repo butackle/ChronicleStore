@@ -9,37 +9,37 @@ import {Coordinates} from '../type/coordinates';
 @Entity()
 export class Scene extends Reliability {
   @PrimaryGeneratedColumn()
-  id: number
+  id!: number
 
   // Time of the event
   @Column()
-  time: Date
+  time!: Date
 
   // Celestial body where the event took place
-  @Column()
-  astron: Astron
+  @Column(() => Astron)
+  astron!: Astron
 
   // Coordinates of the event on the celestial body
   @Column({
     type: 'json',
   })
-  coordinates: Coordinates[]
+  coordinates!: Coordinates[]
 
   // Cast involved in the event
   @TreeChildren()
-  casts: Cast[]
+  casts!: Cast[]
 
   // Source of the event
-  @Column()
-  source: Source
+  @Column(() => Source)
+  source!: Source
 
   // Archiver who recorded the scene
-  @Column()
-  archiver: Archiver
+  @Column(() => Archiver)
+  archiver!: Archiver
 
   @Column()
-  createdAt: Date
+  createdAt!: Date
 
   @Column()
-  updatedAt: Date
+  updatedAt!: Date
 }

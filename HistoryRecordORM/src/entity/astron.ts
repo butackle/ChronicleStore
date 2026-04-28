@@ -3,9 +3,8 @@ import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
 @Entity()
 export class Astron {
   @PrimaryGeneratedColumn()
-  id: number
-
+  id!: number
 
   @Column()
-  name: string
+  name!: string
 }

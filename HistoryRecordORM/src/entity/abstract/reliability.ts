@@ -8,5 +8,5 @@ export abstract class Reliability {
   @Column({
     type: 'float'
   })
-  reliability: ReliabilityScoreType
+  reliability!: ReliabilityScoreType
 }

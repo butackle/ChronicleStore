@@ -4,8 +4,8 @@ import {Reliability} from './abstract/reliability';
 @Entity()
 export class Source extends Reliability {
   @PrimaryGeneratedColumn()
-  id: number
+  id!: number
 
   @Column()
-  name: string
+  name!: string
 }
