@@ -5,8 +5,9 @@ export class Group {
   @PrimaryGeneratedColumn()
   id!: number
 
+  // Sticky notes for understanding people (not the actual name)
   @Column()
-  name!: string
+  label!: string
 
   @Column()
   description!: string
