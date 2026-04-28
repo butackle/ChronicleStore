@@ -1,7 +1,7 @@
 import {Column, Entity, JoinTable, ManyToMany} from 'typeorm'
 import {Group} from './abstract/group';
 import {Cast} from './cast';
-import {CastGroupType} from '../type/castGroupType';
+import {CastGroupType} from '../enum/castGroupType';
 
 @Entity()
 export class CastGroup extends Group {

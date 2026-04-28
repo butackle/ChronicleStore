@@ -1,5 +1,5 @@
 import {Column, Entity, ManyToMany} from 'typeorm'
-import {CastType} from '../type/castType';
+import {CastType} from '../enum/castType';
 import {Reliability} from './abstract/reliability';
 import {CastGroup} from './castGroup';
 

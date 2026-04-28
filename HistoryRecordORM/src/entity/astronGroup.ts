@@ -1,7 +1,7 @@
 import {Column, Entity, JoinTable, ManyToMany} from 'typeorm'
 import {Group} from './abstract/group';
 import {Astron} from './astron';
-import {AstronGroupType} from '../type/astronGroupType';
+import {AstronGroupType} from '../enum/astronGroupType';
 
 @Entity()
 export class AstronGroup extends Group {

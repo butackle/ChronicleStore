@@ -1,5 +1,5 @@
 import {Column, Entity, ManyToMany} from 'typeorm'
-import {AstronType} from '../type/astronType';
+import {AstronType} from '../enum/astronType';
 import {AstronGroup} from './astronGroup';
 import {Base} from './abstract/_base';
 

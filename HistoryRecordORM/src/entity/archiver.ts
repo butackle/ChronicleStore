@@ -1,6 +1,6 @@
 import {Column, Entity} from 'typeorm'
 import {Reliability} from './abstract/reliability'
-import {ArchiverType} from '../type/archiverType';
+import {ArchiverType} from '../enum/archiverType';
 
 @Entity()
 export class Archiver extends Reliability {

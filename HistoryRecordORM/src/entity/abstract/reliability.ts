@@ -1,5 +1,5 @@
 import {Check, Column, Entity} from 'typeorm'
-import {ReliabilityScore} from '../../type/reliability';
+import {ReliabilityScore} from '../../enum/reliability';
 import {Base} from './_base';
 
 

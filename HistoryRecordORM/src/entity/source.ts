@@ -1,6 +1,6 @@
 import {Column, Entity, ManyToMany, OneToMany} from 'typeorm'
 import {Reliability} from './abstract/reliability';
-import {SourceType} from '../type/sourceType';
+import {SourceType} from '../enum/sourceType';
 import {SourceGroup} from './sourceGroup';
 import {Scene} from './scene';
 
