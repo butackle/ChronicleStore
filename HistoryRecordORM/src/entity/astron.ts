@@ -23,7 +23,7 @@ export class Astron {
   distanceLy!: number
 
   // Datetime when the distance to the celestial body was measured
-  @Column('date')
+  @Column()
   observedAt!: Date
 
   @Column()
