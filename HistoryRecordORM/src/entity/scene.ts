@@ -33,6 +33,14 @@ export class Scene extends Reliability {
   @Column(() => Source)
   source!: Source
 
+  // start position of the source
+  @Column()
+  startPosition!: number[][]
+
+  // end position of the source
+  @Column()
+  endPosition!: number[][]
+
   // Archiver who recorded the scene
   @Column(() => Archiver)
   archiver!: Archiver
