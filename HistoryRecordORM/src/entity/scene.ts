@@ -1,4 +1,4 @@
-import {Column, Entity, TreeChildren} from 'typeorm'
+import {Column, Entity, JoinColumn, OneToOne, TreeChildren} from 'typeorm'
 import {Cast} from './cast';
 import {Source} from './source';
 import {Astron} from './astron';
@@ -13,10 +13,11 @@ export class Scene extends Reliability {
   time!: Date
 
   // Celestial body where the event took place
-  @Column(() => Astron)
+  @OneToOne(() => Astron)
+  @JoinColumn()
   astron!: Astron
 
-  // Coordinates of the event on the celestial body
+  // Presumed location of the event
   @Column({
     type: 'json',
   })
@@ -27,7 +28,8 @@ export class Scene extends Reliability {
   casts!: Cast[]
 
   // Source of the event
-  @Column(() => Source)
+  @OneToOne(() => Source)
+  @JoinColumn()
   source!: Source
 
   // start position of the source
@@ -42,7 +44,12 @@ export class Scene extends Reliability {
   })
   endPosition!: object
 
+  // Summery of the event
+  @Column()
+  summery!: string
+
   // Archiver who recorded the scene
-  @Column(() => Archiver)
+  @OneToOne(() => Archiver)
+  @JoinColumn()
   archiver!: Archiver
 }
