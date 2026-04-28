@@ -7,6 +7,7 @@ import {Archiver} from './entity/archiver';
 import {Astron} from './entity/astron';
 import {AstronGroup} from './entity/astronGroup';
 import {CastGroup} from './entity/castGroup';
+import {SourceGroup} from './entity/sourceGroup';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -17,7 +18,7 @@ export const AppDataSource = new DataSource({
   database: 'test',
   synchronize: true,
   logging: false,
-  entities: [Scene, Cast, CastGroup, Source, Archiver, Astron, AstronGroup],
+  entities: [Scene, Cast, CastGroup, Source, SourceGroup, Archiver, Astron, AstronGroup],
   migrations: [],
   subscribers: [],
 })

@@ -1,6 +1,7 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
+import {Column, Entity, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
 import {Reliability} from './abstract/reliability';
 import {SourceType} from '../type/sourceType';
+import {SourceGroup} from './sourceGroup';
 
 @Entity()
 export class Source extends Reliability {
@@ -15,6 +16,9 @@ export class Source extends Reliability {
     enum: SourceType
   })
   type!: SourceType
+
+  @ManyToMany(() => SourceGroup, sourceGroup => sourceGroup.sources)
+  sourceGroup!: SourceGroup[]
 
   @Column()
   createdAt!: Date
