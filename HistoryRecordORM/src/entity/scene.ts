@@ -1,4 +1,4 @@
-import {Column, Entity, JoinColumn, ManyToMany, OneToMany, OneToOne, TreeChildren} from 'typeorm'
+import {Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, OneToOne, TreeChildren} from 'typeorm'
 import {Cast} from './cast';
 import {Source} from './source';
 import {Archiver} from './archiver';
@@ -21,8 +21,7 @@ export class Scene extends Reliability {
   casts!: Cast[]
 
   // Source of the event
-  @OneToOne(() => Source)
-  @JoinColumn()
+  @ManyToOne(() => Source)
   source!: Source
 
   // start position of the source
