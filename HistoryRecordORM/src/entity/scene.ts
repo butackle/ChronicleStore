@@ -1,10 +1,11 @@
-import {Column, Entity, JoinColumn, OneToOne, TreeChildren} from 'typeorm'
+import {Column, Entity, JoinColumn, ManyToMany, OneToOne, TreeChildren} from 'typeorm'
 import {Cast} from './cast';
 import {Source} from './source';
 import {Astron} from './astron';
 import {Archiver} from './archiver';
 import {Reliability} from './abstract/reliability';
 import {Coordinates} from '../type/coordinates';
+import {Series} from './series';
 
 @Entity()
 export class Scene extends Reliability {
@@ -52,4 +53,7 @@ export class Scene extends Reliability {
   @OneToOne(() => Archiver)
   @JoinColumn()
   archiver!: Archiver
+
+  @ManyToMany(() => Series, series => series.scenes)
+  series!: Series[]
 }
