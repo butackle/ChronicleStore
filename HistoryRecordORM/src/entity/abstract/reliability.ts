@@ -1,5 +1,5 @@
 import {Check, Column, Entity} from 'typeorm'
-import {ReliabilityScore, ReliabilityScoreType} from '../../type/reliability';
+import {ReliabilityScore} from '../../type/reliability';
 import {Base} from './_base';
 
 
@@ -13,5 +13,5 @@ export abstract class Reliability extends Base {
   @Column({
     type: 'float'
   })
-  reliability!: ReliabilityScoreType
+  reliability!: number
 }
