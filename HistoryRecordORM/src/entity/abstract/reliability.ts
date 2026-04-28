@@ -1,5 +1,6 @@
 import {Check, Column, Entity} from 'typeorm'
 import {ReliabilityScore, ReliabilityScoreType} from '../../type/reliability';
+import {Base} from './_base';
 
 
 // Reliability is an abstract class that represents the reliability of a source or a record.
@@ -8,7 +9,7 @@ import {ReliabilityScore, ReliabilityScoreType} from '../../type/reliability';
 // The Check decorator is used to ensure that the reliability score is within the valid range.
 @Entity()
 @Check(`"reliability" >= ${ReliabilityScore.min} AND "reliability" <= ${ReliabilityScore.max}`)
-export abstract class Reliability {
+export abstract class Reliability extends Base {
   @Column({
     type: 'float'
   })

@@ -1,12 +1,10 @@
-import {Column, Entity, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
+import {Column, Entity, ManyToMany} from 'typeorm'
 import {AstronType} from '../type/astronType';
 import {AstronGroup} from './astronGroup';
+import {Base} from './abstract/_base';
 
 @Entity()
-export class Astron {
-  @PrimaryGeneratedColumn()
-  id!: number
-
+export class Astron extends Base {
   @Column()
   name!: string
 
@@ -29,10 +27,4 @@ export class Astron {
 
   @ManyToMany(() => AstronGroup, astronGroup => astronGroup.astrons)
   astronGroup!: AstronGroup[]
-
-  @Column()
-  createdAt!: Date
-
-  @Column()
-  updatedAt!: Date
 }

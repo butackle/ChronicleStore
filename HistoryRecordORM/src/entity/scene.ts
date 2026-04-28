@@ -1,4 +1,4 @@
-import {Column, Entity, PrimaryGeneratedColumn, TreeChildren} from 'typeorm'
+import {Column, Entity, TreeChildren} from 'typeorm'
 import {Cast} from './cast';
 import {Source} from './source';
 import {Astron} from './astron';
@@ -8,9 +8,6 @@ import {Coordinates} from '../type/coordinates';
 
 @Entity()
 export class Scene extends Reliability {
-  @PrimaryGeneratedColumn()
-  id!: number
-
   // Time of the event
   @Column()
   time!: Date
@@ -35,19 +32,13 @@ export class Scene extends Reliability {
 
   // start position of the source
   @Column()
-  startPosition!: number[][]
+  startPosition!: number
 
   // end position of the source
   @Column()
-  endPosition!: number[][]
+  endPosition!: number
 
   // Archiver who recorded the scene
   @Column(() => Archiver)
   archiver!: Archiver
-
-  @Column()
-  createdAt!: Date
-
-  @Column()
-  updatedAt!: Date
 }

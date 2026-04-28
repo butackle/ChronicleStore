@@ -1,13 +1,10 @@
-import {Column, Entity, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
+import {Column, Entity, ManyToMany} from 'typeorm'
 import {Reliability} from './abstract/reliability';
 import {SourceType} from '../type/sourceType';
 import {SourceGroup} from './sourceGroup';
 
 @Entity()
 export class Source extends Reliability {
-  @PrimaryGeneratedColumn()
-  id!: number
-
   @Column()
   name!: string
 
@@ -19,10 +16,4 @@ export class Source extends Reliability {
 
   @ManyToMany(() => SourceGroup, sourceGroup => sourceGroup.sources)
   sourceGroup!: SourceGroup[]
-
-  @Column()
-  createdAt!: Date
-
-  @Column()
-  updatedAt!: Date
 }
