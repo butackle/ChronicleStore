@@ -1,6 +1,7 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
+import {Column, Entity, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
 import {CastType} from '../type/castType';
 import {Reliability} from './abstract/reliability';
+import {CastGroup} from './castGroup';
 
 @Entity()
 export class Cast extends Reliability {
@@ -16,6 +17,9 @@ export class Cast extends Reliability {
     enum: CastType
   })
   type: CastType
+
+  @ManyToMany(() => CastGroup, castGroup => castGroup.casts)
+  castGroup!: CastGroup[]
 
   @Column()
   createdAt!: Date
