@@ -179,19 +179,6 @@ erDiagram
     int astron
   }
 
-  SCENE {
-    int id PK
-    datetime createdAt
-    datetime updatedAt
-    float reliability
-    datetime time
-    json startPosition
-    json endPosition
-    string summery
-    int source
-    int archiver
-  }
-
   CASTGROUP {
     int id PK
     datetime createdAt
@@ -210,6 +197,19 @@ erDiagram
     string type
   }
 
+  SCENE {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    float reliability
+    datetime time
+    json startPosition
+    json endPosition
+    string summery
+    int source
+    int archiver
+  }
+
   SOURCEGROUP }o--o{ SOURCE : sources
   SOURCE ||--o{ SCENE : scenes
   SOURCE }o--o{ SOURCEGROUP : sourceGroup
@@ -220,14 +220,12 @@ erDiagram
   LOCATIONRELIABILITY }o--|| SCENE : scene
   LOCATIONRELIABILITY ||--|| ASTRON : astron
   SCENE ||--o{ LOCATIONRELIABILITY : locationReliabilities
-  SCENE ||--o{ SCENE : casts
+  SCENE ||--o{ CAST : casts
   SCENE }o--|| SOURCE : source
   SCENE ||--|| ARCHIVER : archiver
   SCENE }o--o{ SERIES : series
   CASTGROUP }o--o{ CAST : casts
   CAST }o--o{ CASTGROUP : castGroup
-
-
 ```
 
 ## CurationSystem
