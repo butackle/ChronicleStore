@@ -110,7 +110,7 @@ etc.
 
 ### Detailed Data Structure
 
-(2026.4.30) Generated from an ORM entity. I’ll check the output later.
+(2026.4.30) Generated from an ORM entity. I have a cold, so I’ll check the output later.
 
 ```mermaid
 erDiagram
