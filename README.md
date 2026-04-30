@@ -108,6 +108,128 @@ Scenes and series themselves can also act as cast.
 
 etc.
 
+### Detailed Data Structure
+
+(2026.4.30) Generated from an ORM entity. I’ll check the output later.
+
+```mermaid
+erDiagram
+
+  SOURCEGROUP {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    string label
+    string description
+  }
+
+  SOURCE {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    float reliability
+    string name
+    string type
+  }
+
+  ARCHIVER {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    float reliability
+    string name
+    string type
+  }
+
+  SERIES {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    string label
+    string description
+  }
+
+  ASTRONGROUP {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    string label
+    string description
+    string type
+  }
+
+  ASTRON {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    string name
+    string type
+    float distanceLy
+    datetime observedAt
+  }
+
+  LOCATIONRELIABILITY {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    float reliability
+    int latitude
+    int longitude
+    int scene
+    int astron
+  }
+
+  SCENE {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    float reliability
+    datetime time
+    json startPosition
+    json endPosition
+    string summery
+    int source
+    int archiver
+  }
+
+  CASTGROUP {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    string label
+    string description
+    string type
+  }
+
+  CAST {
+    int id PK
+    datetime createdAt
+    datetime updatedAt
+    float reliability
+    string name
+    string type
+  }
+
+  SOURCEGROUP }o--o{ SOURCE : sources
+  SOURCE ||--o{ SCENE : scenes
+  SOURCE }o--o{ SOURCEGROUP : sourceGroup
+  SERIES }o--o{ SCENE : scenes
+  SERIES }o--o{ SERIES : series
+  ASTRONGROUP }o--o{ ASTRON : astrons
+  ASTRON }o--o{ ASTRONGROUP : astronGroup
+  LOCATIONRELIABILITY }o--|| SCENE : scene
+  LOCATIONRELIABILITY ||--|| ASTRON : astron
+  SCENE ||--o{ LOCATIONRELIABILITY : locationReliabilities
+  SCENE ||--o{ SCENE : casts
+  SCENE }o--|| SOURCE : source
+  SCENE ||--|| ARCHIVER : archiver
+  SCENE }o--o{ SERIES : series
+  CASTGROUP }o--o{ CAST : casts
+  CAST }o--o{ CASTGROUP : castGroup
+
+
+```
+
 ## CurationSystem
 
 An application and database that provide information stored in the HistoryRecord based on specific purposes.
