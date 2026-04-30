@@ -13,7 +13,7 @@ export class AstronGroup extends Group {
     type: 'enum',
     enum: AstronGroupType
   })
-  type: AstronGroupType
+  type: AstronGroupType = AstronGroupType.DEFAULT
 }
 
 

@@ -13,5 +13,5 @@ export class CastGroup extends Group {
     type: 'enum',
     enum: CastGroupType
   })
-  type: CastGroupType
+  type: CastGroupType = CastGroupType.DEFAULT
 }

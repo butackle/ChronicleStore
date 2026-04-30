@@ -1,4 +1,5 @@
 export enum CastType {
+  DEFAULT = '',
   Human = 'Human',
   Country = 'Country',
   Town = 'Town',

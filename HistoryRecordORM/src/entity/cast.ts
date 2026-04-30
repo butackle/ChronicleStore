@@ -13,7 +13,7 @@ export class Cast extends Reliability {
     type: 'enum',
     enum: CastType
   })
-  type: CastType
+  type: CastType = CastType.DEFAULT
 
   @ManyToMany(() => CastGroup, castGroup => castGroup.casts)
   castGroup!: CastGroup[]
